@@ -1,0 +1,105 @@
+<div class="container-fluid single-class">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="section">
+              <carousel [interval]="60000" [(activeSlide)]="activeSlideIndex" >
+                  <slide *ngFor="let slide of slides; let index=index">
+                    <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+                  </slide>
+                </carousel>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="class-header">
+              <div>
+                <img [src]="classInfo.logo" alt="logo" class="logo">
+              </div>
+              <div class="mt10"><span class="small-font">{{classInfo.category}}</span></div>
+              <div class="mt10"><h2>{{classInfo.name}}</h2></div>
+              <div class="mt10"><h5>{{classInfo.studioName}}</h5></div>
+              <div class="mt10 location">
+                <a target="_blank" href="https://www.google.com/maps/search/?api=1&query={{classInfo.location}}">
+                <img class="icon" src="../../../assets/location.png" alt="location"><span class="text">{{classInfo.location}}</span> 
+              </a> 
+            </div>
+            <div class="mt10 location">
+              <a href="tel:{{classInfo.phone}}">
+                <i class="fas fa-phone-square" aria-hidden="true"></i> <span class="text"> {{classInfo.phone}}</span> 
+              </a>
+            </div>
+              <div class="mt10">
+                      <i class="fa-star" [ngClass]="{ 'fas': classInfo.ratings >= 1, 'far': classInfo.ratings < 1 }"></i> 
+                      <i class="fa-star" [ngClass]="{ 'fas': classInfo.ratings >= 2, 'far': classInfo.ratings < 2 }"></i>
+                      <i class="fa-star" [ngClass]="{ 'fas': classInfo.ratings >= 3, 'far': classInfo.ratings < 3 }"></i>
+                      <i class="fa-star" [ngClass]="{ 'fas': classInfo.ratings >= 4, 'far': classInfo.ratings < 4 }"></i>
+                      <i class="fa-star" [ngClass]="{ 'fas': classInfo.ratings >= 5, 'far': classInfo.ratings < 5 }"></i>
+                      <span class="review">{{ classInfo.ratings }} reviews</span>
+              </div>
+              <div class="date-time mt10">
+                <div class="row">
+                  <div class="col-md-4 col-sm-4">
+                      <mat-select
+                      [(ngModel)]="selectedClassDate"
+                      placeholder="Pick a Date"
+                      (selectionChange)="classDateChange()"
+                    >
+                      <mat-option *ngFor="let ft of ['Wednesday, Apr 03','Wednesday, Apr 03']" [value]="ft">{{
+                        ft
+                      }}</mat-option>
+                    </mat-select>
+                  </div>
+                  <div class="col-md-4 col-sm-4">
+                      <mat-select
+                      [(ngModel)]="selectedClassTime"
+                      placeholder="Select Time"
+                      (selectionChange)="classTimeChange()"
+                    >
+                      <mat-option *ngFor="let ft of ['6:00am - 7:00am','6:30am - 7:30am']" [value]="ft">{{
+                        ft
+                      }}</mat-option>
+                    </mat-select>
+                  </div>
+                </div>
+              </div>
+              <div class="mt10 checkout">
+                  <div class="row">
+                  <div class="col-md-4 col-sm-4">
+                      <h3 class="price">&#x20b9;{{classInfo.price}} </h3>
+                      
+                  </div>
+                  <div class="col-md-4 col-sm-4">
+                      <button mat-raised-button color="accent" class="btn" (click)="bookClass()">
+                        BOOK
+                      </button>
+                  </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+        </div>
+        <br> <hr>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 m-10">
+              <h4 class="title">About the class</h4>
+              <p class="description">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </p>
+          </div>
+        </div>
+        <hr>
+        <h4>Amenities</h4>
+        <div class="row text-center">
+            <div class="col-md-3">
+              <!-- <i class="fa fa-shower fa-10x" aria-hidden="true"></i> -->
+              <img src="../../../assets/shower.svg" width="150px"  alt="shower">
+              <span class="amentites-text description">Shower</span>
+            </div>
+            <div class="col-md-3">
+              <img src="../../../assets/lockers.svg" width="150px" alt="lockers">
+              <span class="amentites-text description">Lockers</span>
+            </div>
+            <div class="col-md-3">
+            <img src="../../../assets/yoga-mat.svg" width="150px" alt="yoga mat">
+              <span class="amentites-text description">Mat</span>
+              </div>
+        </div>
+        </div>

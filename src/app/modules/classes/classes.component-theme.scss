@@ -1,0 +1,21 @@
+@import "~@angular/material/theming";
+
+@mixin classes-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  ygs-classes {
+    .fas {
+      color: mat-color($accent);
+    }
+    .far {
+      color: rgba(0, 0, 0, 0.42);
+    }
+    .price {
+      color: mat-color($accent);
+      float: right;
+    }
+  }
+}

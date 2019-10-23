@@ -1,0 +1,68 @@
+<div class="classes">
+  <div class="container mb-50">
+    <div class="row filter">
+      <div class="col-md-3">
+        <mat-select
+          [(ngModel)]="selectedFitnessType"
+          placeholder="Fitness type"
+          multiple
+          (selectionChange)="fitnessTypeChange()"
+        >
+          <mat-option *ngFor="let ft of fitnessType" [value]="ft">{{
+            ft
+          }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="col-md-5">
+        <ygs-search-input (keyupAction)="search($event)"></ygs-search-input>
+      </div>
+
+      <div class="col-md-2">
+        <mat-select
+          placeholder="Location"
+          [(ngModel)]="selectedLocation"
+          (selectionChange)="locationChange()"
+        >
+          <mat-option *ngFor="let l of Location" [value]="l">{{
+            l
+          }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="col-md-2">
+        <div class="date-picker">
+          <input
+            matInput
+            [matDatepicker]="picker"
+            placeholder="select date"
+            autocomplete="off"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let cls of classes">
+        <mat-card class="studio-card">
+          <a routerLink="/class/{{ cls.name }}">
+            <img mat-card-image [src]="cls.src" alt="Photo of a Shiba Inu" />
+          </a>
+          <mat-card-content>
+            <div>
+              {{ cls.category }}
+              <h3 class="price">&#x20b9;{{ cls.price }}</h3>
+            </div>
+            <a routerLink="/class/{{ cls.name }}">
+              <h3>{{ cls.name | limitTo }}</h3>
+            </a>
+            <p>{{ cls.studio | limitTo }}</p>
+            <p>{{ cls.time }} / {{ cls.trainer }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

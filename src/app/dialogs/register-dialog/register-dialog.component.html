@@ -1,0 +1,72 @@
+<div class="dialog">
+  <button color="secondary" mat-dialog-close>
+    <i class="fas fa-times" aria-hidden="true"></i>
+  </button>
+  <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+    <h2 mat-dialog-title>
+      <img [src]="logo" /> <span data-testid="title">Fitness Studio</span>
+    </h2>
+    <mat-dialog-content>
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="row">
+            <mat-form-field class="col" >
+              <input
+                autocomplete="off"
+                matInput
+                type="text"
+                placeholder="Full Name"
+                formControlName="fullName"
+              />
+              <mat-error *ngIf="newUserForm.get('fullName').invalid">
+                Full name is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field class="col" >
+              <input
+                autocomplete="off"
+                matInput
+                placeholder="Email"
+                formControlName="email"
+                type="email"
+              />
+              <mat-error *ngIf="newUserForm.get('email').hasError('required')">
+                email is required
+              </mat-error>
+              <mat-error *ngIf="newUserForm.get('email').hasError('email')">
+                email should be valid
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field class="col">
+              <input
+                autocomplete="off"
+                matInput
+                type="password"
+                placeholder="Password"
+                formControlName="password"
+              />
+              <mat-error *ngIf="newUserForm.get('password').invalid">
+                Password is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button
+        type="submit"
+        mat-raised-button
+        color="accent"
+        [disabled]="newUserForm.invalid"
+        style="width:100%"
+      >
+        Sign Up
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

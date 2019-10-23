@@ -1,0 +1,82 @@
+<div class="background">
+  <div class="gradient">
+    <div class="container">
+      <h1 class="center">Fitness Studio</h1>
+      <p class="center block">
+        <span class="block">
+          Find the largest selection of studios, workout classes and
+          fitness deals all in one place.</span
+        >
+        <span> Book what you love or discover a new favorite.</span>
+      </p>
+      <div class="actions offset-md-2 col-md-8">
+        <a mat-raised-button routerLink="studios" routerLinkActive="active">
+          See all studios
+        </a>
+        <a mat-raised-button routerLink="classes" routerLinkActive="active">
+          See all Classes
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="studios">
+  <div class="container mb-50">
+    <div class="studio-title">
+      <h3>Studio near you</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-12" *ngFor="let std of studios">
+        <mat-card class="studio-card">
+          <a routerLink="/studio/{{ std.name }}">
+            <img mat-card-image [src]="std.src" alt="Photo of a Shiba Inu" />
+          </a>
+          <mat-card-content>
+            <a routerLink="/studio/{{ std.name }}">
+              <h3>{{ std.name | limitTo }}</h3>
+            </a>
+            <p>{{ std.location }}</p>
+            <p>
+              <i
+                class="fa-star"
+                [ngClass]="{ fas: std.retings >= 1, far: std.retings < 1 }"
+              ></i>
+              <i
+                class="fa-star"
+                [ngClass]="{ fas: std.retings >= 2, far: std.retings < 2 }"
+              ></i>
+              <i
+                class="fa-star"
+                [ngClass]="{ fas: std.retings >= 3, far: std.retings < 3 }"
+              ></i>
+              <i
+                class="fa-star"
+                [ngClass]="{ fas: std.retings >= 4, far: std.retings < 4 }"
+              ></i>
+              <i
+                class="fa-star"
+                [ngClass]="{ fas: std.retings >= 5, far: std.retings < 5 }"
+              ></i>
+              <span class="review">{{ std.retings }} reviews</span>
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-50">
+    <div class="city-title">
+      <h3>Popular Cities</h3>
+    </div>
+    <div class="row cities-card">
+      <div class="col-md-3 col-sm-12" *ngFor="let city of cities">
+        <mat-card>
+          <a href="#">
+            <img mat-card-image [src]="city.src" alt="city.name" />
+            <div class="city-name">{{ city.name }}</div>
+          </a>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

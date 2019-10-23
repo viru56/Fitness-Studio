@@ -1,0 +1,24 @@
+@import "~@angular/material/theming";
+
+@mixin single-class-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  ygs-single-class {
+    .fas {
+      color: mat-color($accent);
+    }
+    .far {
+      color: rgba(0, 0, 0, 0.42);
+    }
+    .price {
+      color: mat-color($accent);
+    }
+    .description{
+      color: mat-color($primary, 600)
+    }
+  }
+}

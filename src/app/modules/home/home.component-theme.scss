@@ -1,0 +1,42 @@
+@import '~@angular/material/theming';
+
+@mixin home-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  ygs-home {
+    .fas {
+      color: mat-color($accent);
+    }
+    .far {
+      color: rgba(0, 0, 0, 0.42);
+    }
+    .background {
+      color: mat-color($foreground, text);
+      background-color: mat-color($background, background);
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: mat-color($accent);
+        background-size: cover;
+        opacity: 0.7;
+        content: "";
+        z-index: 0;
+      }
+      .gradient {
+        &::before {
+          background: linear-gradient(
+            to bottom,
+            mat-color($background, background, 0) 0%,
+            mat-color($background, background, 1) 100%
+          );
+        }
+      }
+    }
+  }
+}

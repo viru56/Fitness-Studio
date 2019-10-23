@@ -1,0 +1,25 @@
+
+@import "../../../styles-variables.scss";
+
+.search-input {
+    width: 100%;
+    transition: all 0.5s;
+    display: inline-flex;
+    padding: 10px;
+    border-radius: 0;
+  
+    input {
+      flex-grow: 1;
+      border: 0;
+      font-size: 1rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, md)) {
+    .search-input{
+      max-width: 450px;
+      text-align: center;
+    }
+  }

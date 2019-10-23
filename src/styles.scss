@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+// remove the outline 
+
+@import "./styles-variables.scss";
+@import "../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/solid.min.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/regular.min.css";
+@import "../node_modules/@angular/material/theming";
+@import "styles-reset";
+@include mat-core();
+
+@import "./light-theme.scss";
+@import './styles-reset-theme.scss';
+@import './app/app.component-theme.scss';
+@import './app/modules/home/home.component-theme.scss';
+@import "app/modules/studios/studios.component-theme.scss";
+@import "app/modules/classes/classes.component-theme.scss";
+@import "app/modules/single-class/single-class.component-theme.scss";
+@import "app/modules/single-studio/single-studio.component-theme.scss";
+@import "app/shared/search-input/search-input.component.scss-theme.scss";
+@import 'app/dialogs/dialog-theme.scss';
+
+@mixin custom-components-theme($theme) {
+  // custom component theme
+  @include app-styles-reset-theme($theme);
+  @include app-component-theme($theme);
+  @include home-component-theme($theme);
+  @include studios-component-theme($theme);
+  @include classes-component-theme($theme);
+  @include single-class-component-theme($theme);
+  @include single-studio-component-theme($theme);
+  @include app-search-input-component-theme($theme);
+  @include  app-dialog-theme($theme);
+}
+.light-theme {
+  @include angular-material-theme($ygs-light-theme);
+  @include custom-components-theme($ygs-light-theme);
+}
+.studio-card{
+  min-height: 380px;
+  img {
+    min-height: 260px;
+  }
+}

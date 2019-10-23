@@ -1,0 +1,8 @@
+<mat-card class="search-input">
+  <input
+    [(ngModel)]="filterText"
+    name="filterText"
+    placeholder="Filter by name,location..."
+    (keyup)="onKeyup()"
+  />
+</mat-card>

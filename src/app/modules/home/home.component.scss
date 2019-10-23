@@ -1,0 +1,141 @@
+@import "../../../styles-variables";
+
+.center {
+  text-align: center;
+}
+.block {
+  display: block;
+}
+.mb-50 {
+  margin-bottom: 50px;
+}
+.background {
+  padding: 50px 0 0 0;
+  position: relative;
+  min-height: 50vh;
+
+  .actions {
+    a{
+      margin-left: 10px;
+    }
+    text-align: center;
+    margin-top: 50px;
+    z-index: 1;
+  }
+
+  .gradient {
+    margin-top: 20px;
+    &::before {
+      position: absolute;
+      top: 51%;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      content: "";
+      z-index: 0;
+    }
+  }
+
+  .container {
+    position: relative;
+    .big-input {
+      width: 100%;
+      transition: all 0.5s;
+      display: flex;
+      padding: 10px 10px 10px 20px;
+
+      input {
+        flex-grow: 1;
+        border: 0;
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
+  }
+}
+.studio-title, .city-title {
+  margin-bottom: 20px;
+  h3 {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .background {
+    .gradient {
+      margin-top: 0px;
+    }
+    .actions {
+      margin-top: 50px;
+    }
+  }
+  .studio-title,.city-title {
+    h3 {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .background {
+    padding: 40px 0 0 0;
+    .gradient {
+      margin-top: 0px;
+    }
+    h1 {
+      line-height: 1em;
+    }
+
+    .actions {
+      margin-top: 40px;
+    }
+  }
+  .studio-title, .city-title {
+    h3 {
+      text-align: center;
+    }
+  }
+}
+
+.studios {
+  .container {
+    max-width: 90%;
+  }
+  .studio-card {
+    max-width: 450px;
+    margin: 10px auto;
+    border-radius: 0;
+    mat-card-content {
+      margin: 0 -10px 0 -10px;
+      h3 {
+        font-weight: 500;
+        font-size: 1rem;
+      }
+      .review{
+        font-size: 0.7rem;
+        padding-left: 15px;
+      }
+    }
+  }
+  .cities-card {
+    mat-card {
+      max-width: 450px;
+      margin: 10px auto;
+      border-radius: 4%;
+      padding-bottom: 0px;
+      .mat-card-image {
+        margin: -16px -16px 0px -16px;
+        border-radius: 4%;
+      }
+      .city-name {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+$ygs-light-primary: mat-palette($mat-grey, 150,900,400);
+$ygs-light-accent: mat-palette($mat-orange, 800, 300, 500);
+$ygs-light-warn: mat-palette($mat-red, 500);
+$ygs-light-theme: mat-light-theme(
+  $ygs-light-primary,
+  $ygs-light-accent,
+  $ygs-light-warn
+);

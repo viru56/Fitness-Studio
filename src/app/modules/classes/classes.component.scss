@@ -1,0 +1,88 @@
+@import "../../../styles-variables";
+
+.center {
+  text-align: center;
+}
+.block {
+  display: block;
+}
+.mb-50 {
+  margin-bottom: 50px;
+}
+.filter {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.pl-15{
+  padding-left: 15px;
+}
+.mat-select{
+  padding: 10px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+.date-picker{
+  display: inline-block;
+  width: 100%;
+  padding: 2px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  input{
+    font: inherit;
+    background: 0 0;
+    color: currentColor;
+    border: none;
+    outline: 0;
+    padding-left: 5px;
+    text-align: inherit;
+    max-width: 86px;
+    vertical-align: -webkit-baseline-middle;
+  }
+  mat-datepicker-toggle {
+    float: right;
+  }
+}
+mat-form-field{
+  .mat-form-field-wrapper{
+    .mat-form-field-flex{
+      .mat-form-field-infix{
+        width: 100% !important;
+      }
+    }
+  }
+}
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .filter{
+    text-align: center;
+    mat-select, .date-picker{
+      max-width: 450px;
+    }
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+
+}
+
+.classes {
+  .container {
+    max-width: 95%;
+  }
+  .studio-card {
+    max-width: 450px;
+    margin: 10px auto;
+    border-radius: 0;
+    mat-card-content {
+      margin: 0 -10px 0 -10px;
+      div{
+        margin-bottom: 12px;
+      }
+      p{
+        margin-bottom: 0;
+      }
+      h3 {
+        font-weight: 500;
+        margin-bottom: 0;
+        font-size: 1rem;
+      }
+    }
+  }
+}

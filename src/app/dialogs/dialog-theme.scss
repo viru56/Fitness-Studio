@@ -1,0 +1,53 @@
+@import "~@angular/material/theming";
+
+@mixin app-dialog-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  button {
+    &.active {
+      color: mat-color($accent, default-contrast);
+      background-color: mat-color($accent);
+    }
+  }
+
+  .link {
+    color: mat-color($primary, default-contrast);
+  }
+  .dialog {
+    width: 400px;
+    button {
+      float: right;
+      border: 0;
+    }
+    .fa-times{
+      color: mat-color($primary,dark-contrast);
+    }
+    .fa-times:hover{
+      color:mat-color($accent);
+    }
+    .mat-dialog-title {
+      text-align: center;
+      img {
+        width: 48px;
+      }
+    }
+    .mat-dialog-actions {
+      .no-shadow {
+        box-shadow: none;
+      }
+    }
+    a,a:hover {
+      cursor: pointer;
+      color:mat-color($accent);
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+  }
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    .dialog {
+      width: 100%;
+    }
+  }
+}
